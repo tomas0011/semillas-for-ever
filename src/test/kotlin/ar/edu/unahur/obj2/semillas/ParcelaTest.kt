@@ -64,10 +64,6 @@ class ParcelaTest: DescribeSpec ({
             parcelaMediana.totalDePlantas().shouldBe(7)
         }
 
-        it("La superficie de una parcela de 4 metros de largo y 4 metros de ancho deberia ser de 16 m2"){
-            parcelaChica.superficie().shouldBe(16)
-        }
-
         it("La superficie de una parcela de 8 metros de largo y 6 metros de ancho deberia ser de 48 m2"){
             parcelaMediana.superficie().shouldBe(48)
         }
