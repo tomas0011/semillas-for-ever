@@ -44,8 +44,8 @@ class ParcelaIdealTest: DescribeSpec({
                 Peperina(2000, 1.0),
                 Quinoa(2012, 1.3, 2.0),
                 Soja(2022, .2),
-
-                )
+            ),
+            TiposDeParcela.ECOLOGICA
         )
 
         val menta = Menta(2018, .5)

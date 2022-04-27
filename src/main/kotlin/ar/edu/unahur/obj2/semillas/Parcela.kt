@@ -4,7 +4,8 @@ class Parcela(
     private val ancho: Int,
     private val largo: Int,
     val horasDeSolQueRecibe: Int,
-    private val plantas: MutableList<Planta>
+    private val plantas: MutableList<Planta>,
+    val tipoDeParcela: TiposDeParcela = TiposDeParcela.ECOLOGICA
 ) {
     fun superficie(): Int = ancho * largo
 

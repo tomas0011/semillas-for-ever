@@ -68,10 +68,6 @@ class ParcelaTest: DescribeSpec ({
             parcelaMediana.superficie().shouldBe(48)
         }
 
-        it("la cantidad maxima de plantas de una parcela de 4x4 deberia ser 9"){
-            parcelaChica.cantidadMaximaDePlantas().shouldBe(9)
-        }
-
         it("la cantidad maxima de plantas de una parcela de 8x6 deberia ser 9"){
             parcelaMediana.cantidadMaximaDePlantas().shouldBe(9)
         }
