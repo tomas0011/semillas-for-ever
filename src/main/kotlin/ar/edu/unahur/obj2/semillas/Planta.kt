@@ -19,4 +19,12 @@ abstract class Planta(
     }
 
     abstract fun esParcelaIdeal(parcela: Parcela): Boolean
+
+    fun seAsociaBien(parcela: Parcela): Boolean {
+        return if (parcela.tipoDeParcela === TiposDeParcela.ECOLOGICA) {
+            (!parcela.tieneComplicaciones()) && this.esParcelaIdeal(parcela)
+        } else {
+            parcela.totalDePlantas() < 2 && this.esFuerte()
+        }
+    }
 }
