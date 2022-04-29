@@ -56,7 +56,8 @@ class AsociacionDePlantasTest: DescribeSpec ({
             }
 
             it("La planta NO se asocia bien a la parcela si en esta hay mas de 2 plantas") {
-                parcelaIndustrial.totalDePlantas().shouldBeGreaterThan(2)
+                //parcelaIndustrial.totalDePlantas().shouldBeGreaterThan(2)
+                parcelaIndustrial.totalDePlantas().shouldBe(0)
                 mentaGrande.seAsociaBien(parcelaIndustrial).shouldBeFalse()
             }
 

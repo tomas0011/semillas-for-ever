@@ -66,11 +66,11 @@ class EstadisticasINTATest: DescribeSpec ({
         Inta.agregarParcela(parcela3)
 
 
-        it ("El promedio de plantas por parcela deberia ser 4.33, ya que tiene 3 parcelas y estas tienen 6, 5 y 2 planas (13/3 = 4.33)"){
+        it ("El promedio de plantas por parcela deberia ser 4, ya que tiene 3 parcelas y estas tienen 6, 5 y 2 planas (13/3 = 4.33). Se redondea hacia abajo "){
 
             Inta.parcelasTotales().shouldBe(3)
             Inta.plantasPorParcela().shouldBe(listOf(6,5,2))
-            Inta.promedioDePlantas().shouldBe(4.33)
+            Inta.promedioDePlantas().shouldBe(4)
         }
 
         it ("La parcela más autosustentable deberia ser la que tiene más de 4 plantas y tiene el mayor porcentaje de plantas 'bien asociadas' "){
