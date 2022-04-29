@@ -24,15 +24,25 @@ class Inta () {
 
     }
 
+
+    fun plantasTotales(): Int {
+        var plantasTotales = 0
+        parcelas.map { plantasTotales += it.totalDePlantas() }
+        return plantasTotales
+    }
+
     fun promedioDePlantas()=
         if (this.parcelasTotales()==0) {
             0
         }
         else {
-            this.plantasPorParcela().div( this.parcelasTotales())
+            val promedio = this.plantasTotales() / this.parcelasTotales()
+            //this.plantasPorParcela().div( this.parcelasTotales())
+            println(promedio)
+            promedio
         }
 
     fun getParcelas() = parcelas
 }
 
-operator fun Any.div(parcelasTotales: Int): Int = this/ parcelasTotales
+operator fun Any.div(parcelasTotales: Int): Int = parcelasTotales
