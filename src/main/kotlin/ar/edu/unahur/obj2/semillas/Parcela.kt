@@ -31,4 +31,15 @@ class Parcela(
     fun totalDePlantas(): Int = plantas.size
 
     fun plantas(): List<Planta> = plantas
+
+
+    fun cantidadBienAsociadas() {
+        plantas.count { it.esParcelaIdeal(this)}
+    }
+
+    fun porcentajeDeBienAsociada(): Int {
+        return this.cantidadBienAsociadas().div( this.totalDePlantas())
+    }
+
+
 }

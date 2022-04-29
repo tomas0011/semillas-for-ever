@@ -26,6 +26,7 @@ class EstadisticasINTATest: DescribeSpec ({
             4,
             4,
             6,
+
             mutableListOf(
                 mentaGrande,
                 quinoaChica,
@@ -33,7 +34,8 @@ class EstadisticasINTATest: DescribeSpec ({
                 mentaChica,
                 sojaGrande,
                 sojaVieja
-            )
+            ),
+            TiposDeParcela.ECOLOGICA
         )
 
         val parcela2 = Parcela(
@@ -57,22 +59,27 @@ class EstadisticasINTATest: DescribeSpec ({
             )
         )
 
-        INTA.agregarParcela(parcela1)
-        INTA.agregarParcela(parcela2)
-        INTA.agregarParcela(parcela3)
+        val Inta = Inta()
+
+        Inta.agregarParcela(parcela1)
+        Inta.agregarParcela(parcela2)
+        Inta.agregarParcela(parcela3)
+
+
+        it ("El promedio de plantas por parcela deberia ser 4.33, ya que tiene 3 parcelas y estas tienen 6, 5 y 2 planas (13/3 = 4.33)"){
+
+            Inta.parcelasTotales().shouldBe(3)
+            Inta.plantasPorParcela().shouldBe(listOf(6,5,2))
+            Inta.promedioDePlantas().shouldBe(4.33)
+        }
+
+        it ("La parcela más autosustentable deberia ser la que tiene más de 4 plantas y tiene el mayor porcentaje de plantas 'bien asociadas' "){
+            val parcelas = Inta.getParcelas()
+            parcelas.filter{it.totalDePlantas() > 4}.shouldBe(listOf(parcela1,parcela2))
+            Inta.parcelaConMejorAsociacion().shouldBe(parcela1)
+            Inta.parcelaConMejorAsociacion().shouldBe(parcela1)
+        }
     }
 
-    it ("El promedio de plantas por parcela deberia ser 4.33, ya que tiene 3 parcelas y estas tienen 6, 5 y 2 planas (13/3 = 4.33)"){
-        INTA.cuantasParcelasTiene().shouldBe(3)
-        INTA.plantasPorParcela().shouldBe(listOf(6,5,2))
-        INTA.promedioDePlantas().shouldBe(4.33)
-    }
 
-    it ("La parcela más autosustentable deberia ser la que tiene más de 4 plantas y tiene el mayor porcentaje de plantas 'bien asociadas' "){
-        INTA.getParcelas().all(
-            { e: parcela -> e.totalDePlantas() > 4 }
-        ).shouldBe(listOf(parcela1,parcela2))
-        INTA.parcelaConMejorAsociacion().shouldBe(parcela1)
-        INTA.parcelaMasAutosustentable().shouldBe(parcela1)
-    }
 })
